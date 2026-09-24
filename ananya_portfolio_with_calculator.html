@@ -1,0 +1,1042 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ananya Swain - Video Editing</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #0f0f0d 0%, #1a1a18 100%);
+            color: #f5f1e8;
+            line-height: 1.6;
+        }
+
+        /* Hero */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 40px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            max-width: 700px;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(2.5rem, 8vw, 4rem);
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .tagline {
+            font-size: 1.3rem;
+            color: #d4a574;
+            margin-bottom: 15px;
+            font-weight: 400;
+            letter-spacing: 1px;
+        }
+
+        .hero-subtitle {
+            font-size: 0.95rem;
+            color: #a89f95;
+            margin-bottom: 40px;
+            font-weight: 300;
+        }
+
+        .emoji-grid {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .emoji-item {
+            font-size: 3.5rem;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            animation: wiggle 3s infinite;
+        }
+
+        .emoji-item:hover {
+            transform: scale(1.2) rotate(10deg);
+        }
+
+        @keyframes wiggle {
+            0%, 100% { transform: rotate(-1deg); }
+            50% { transform: rotate(1deg); }
+        }
+
+        .cta-primary {
+            background: #d4a574;
+            color: #0f0f0d;
+            border: none;
+            padding: 14px 40px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            display: inline-block;
+            text-decoration: none;
+            font-family: 'Inter', sans-serif;
+            letter-spacing: 0.5px;
+        }
+
+        .cta-primary:hover {
+            background: #c99560;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(212, 165, 116, 0.3);
+        }
+
+        /* Proof Section */
+        .proof {
+            padding: 80px 40px;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .proof h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            color: #d4a574;
+        }
+
+        .proof-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .proof-card {
+            background: rgba(212, 165, 116, 0.08);
+            padding: 30px;
+            border-radius: 12px;
+            border: 1px solid rgba(212, 165, 116, 0.2);
+            transition: all 0.3s ease;
+            animation: slideUp 0.6s ease backwards;
+        }
+
+        .proof-card:nth-child(1) { animation-delay: 0.1s; }
+        .proof-card:nth-child(2) { animation-delay: 0.2s; }
+        .proof-card:nth-child(3) { animation-delay: 0.3s; }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .proof-card:hover {
+            background: rgba(212, 165, 116, 0.12);
+            border-color: #d4a574;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(212, 165, 116, 0.15);
+        }
+
+        .proof-number {
+            font-size: 2.5rem;
+            color: #d4a574;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .proof-label {
+            font-size: 0.9rem;
+            color: #a89f95;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Pricing */
+        .pricing {
+            padding: 80px 40px;
+        }
+
+        .pricing h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 60px;
+            color: #d4a574;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            max-width: 1100px;
+            margin: 0 auto 80px;
+        }
+
+        .price-card {
+            background: rgba(212, 165, 116, 0.08);
+            border: 2px solid rgba(212, 165, 116, 0.2);
+            border-radius: 12px;
+            padding: 40px 30px;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .price-card.most-popular {
+            border-color: #d4a574;
+            background: rgba(212, 165, 116, 0.12);
+            transform: scale(1.05);
+        }
+
+        .price-card:hover {
+            border-color: #d4a574;
+            background: rgba(212, 165, 116, 0.12);
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(212, 165, 116, 0.2);
+        }
+
+        .badge {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #d4a574;
+            color: #0f0f0d;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .price-card h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+
+        .price-card .subtitle {
+            font-size: 0.85rem;
+            color: #a89f95;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+        }
+
+        .price-display {
+            margin: 30px 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .price-option {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 15px;
+            border-radius: 8px;
+        }
+
+        .price-label {
+            font-size: 0.75rem;
+            color: #a89f95;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 5px;
+        }
+
+        .price-amount {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #d4a574;
+        }
+
+        .includes {
+            text-align: left;
+            font-size: 0.9rem;
+            color: #a89f95;
+            margin: 25px 0;
+            line-height: 1.8;
+        }
+
+        .includes li {
+            list-style: none;
+            padding-left: 20px;
+            position: relative;
+            margin-bottom: 8px;
+        }
+
+        .includes li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #d4a574;
+            font-weight: bold;
+        }
+
+        .price-cta {
+            background: #d4a574;
+            color: #0f0f0d;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            margin-top: 20px;
+            font-family: 'Inter', sans-serif;
+            width: 100%;
+        }
+
+        .price-cta:hover {
+            background: #c99560;
+            transform: translateY(-2px);
+        }
+
+        /* Calculator Section */
+        .calculator {
+            padding: 80px 40px;
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .calculator h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 50px;
+            color: #d4a574;
+        }
+
+        .calc-container {
+            max-width: 700px;
+            margin: 0 auto;
+            background: rgba(212, 165, 116, 0.08);
+            border: 2px solid rgba(212, 165, 116, 0.2);
+            border-radius: 12px;
+            padding: 40px;
+        }
+
+        .calc-section {
+            margin-bottom: 30px;
+        }
+
+        .calc-section h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            color: #f5f1e8;
+        }
+
+        .radio-group {
+            display: grid;
+            gap: 12px;
+        }
+
+        .radio-option {
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .radio-option:hover {
+            background: rgba(212, 165, 116, 0.1);
+            border-color: #d4a574;
+        }
+
+        .radio-option input[type="radio"] {
+            margin-right: 12px;
+            cursor: pointer;
+            accent-color: #d4a574;
+            width: 20px;
+            height: 20px;
+        }
+
+        .radio-option label {
+            cursor: pointer;
+            flex-grow: 1;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 500;
+        }
+
+        .option-price {
+            color: #d4a574;
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        .duration-input-group {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .duration-input-group input {
+            flex: 1;
+            padding: 12px;
+            border: 2px solid rgba(212, 165, 116, 0.2);
+            border-radius: 8px;
+            background: rgba(0, 0, 0, 0.2);
+            color: #f5f1e8;
+            font-size: 1rem;
+            font-weight: 600;
+        }
+
+        .duration-input-group input:focus {
+            outline: none;
+            border-color: #d4a574;
+            background: rgba(0, 0, 0, 0.3);
+        }
+
+        .duration-input-group span {
+            color: #a89f95;
+            min-width: 60px;
+        }
+
+        .result-box {
+            background: rgba(212, 165, 116, 0.15);
+            border: 2px solid #d4a574;
+            border-radius: 12px;
+            padding: 25px;
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .result-label {
+            font-size: 0.9rem;
+            color: #a89f95;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+
+        .result-price {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #d4a574;
+            font-family: 'Cormorant Garamond', serif;
+            margin-bottom: 15px;
+        }
+
+        .result-breakdown {
+            font-size: 0.85rem;
+            color: #a89f95;
+            line-height: 1.8;
+        }
+
+        .calc-cta {
+            background: #d4a574;
+            color: #0f0f0d;
+            border: none;
+            padding: 14px 40px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            margin-top: 20px;
+            font-family: 'Inter', sans-serif;
+            width: 100%;
+        }
+
+        .calc-cta:hover {
+            background: #c99560;
+            transform: translateY(-2px);
+        }
+
+        /* Extras */
+        .extras {
+            padding: 80px 40px;
+        }
+
+        .extras h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 50px;
+            color: #d4a574;
+        }
+
+        .extras-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .extra-card {
+            background: rgba(212, 165, 116, 0.08);
+            padding: 25px;
+            border-radius: 10px;
+            border: 1px solid rgba(212, 165, 116, 0.15);
+            transition: all 0.3s ease;
+        }
+
+        .extra-card:hover {
+            background: rgba(212, 165, 116, 0.12);
+            border-color: #d4a574;
+            transform: translateY(-3px);
+        }
+
+        .extra-card h4 {
+            color: #d4a574;
+            margin-bottom: 8px;
+            font-size: 1rem;
+        }
+
+        .extra-price {
+            color: #d4a574;
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+
+        .extra-desc {
+            font-size: 0.85rem;
+            color: #a89f95;
+            line-height: 1.5;
+        }
+
+        /* Process */
+        .process {
+            padding: 80px 40px;
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .process h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 60px;
+            color: #d4a574;
+        }
+
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .process-step {
+            text-align: center;
+        }
+
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: #d4a574;
+            color: #0f0f0d;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 0 auto 20px;
+        }
+
+        .process-step h4 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+        }
+
+        .process-step p {
+            font-size: 0.9rem;
+            color: #a89f95;
+        }
+
+        /* Footer */
+        footer {
+            padding: 40px;
+            text-align: center;
+            border-top: 1px solid rgba(212, 165, 116, 0.2);
+            background: rgba(0, 0, 0, 0.3);
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: #d4a574;
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: #f5f1e8;
+        }
+
+        .footer-quote {
+            font-style: italic;
+            color: #a89f95;
+            font-size: 0.95rem;
+            margin-top: 20px;
+        }
+
+        .whatsapp-btn {
+            background: #25D366;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+            margin-top: 15px;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 0.95rem;
+        }
+
+        .whatsapp-btn:hover {
+            background: #1fa857;
+            transform: translateY(-2px);
+        }
+
+        /* Confetti */
+        .confetti {
+            position: fixed;
+            width: 10px;
+            height: 10px;
+            pointer-events: none;
+        }
+
+        @keyframes confettifall {
+            to {
+                transform: translateY(100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .price-card.most-popular {
+                transform: scale(1);
+            }
+
+            .pricing-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .emoji-grid {
+                gap: 15px;
+            }
+
+            .emoji-item {
+                font-size: 2.5rem;
+            }
+
+            .duration-input-group {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Ananya Swain</h1>
+            <p class="tagline">Editing That Makes Content Feel</p>
+            <p class="hero-subtitle">Video Editor & Visual Storyteller</p>
+            
+            <div class="emoji-grid">
+                <div class="emoji-item" onclick="celebrate(event)">🎬</div>
+                <div class="emoji-item" onclick="celebrate(event)">✂️</div>
+                <div class="emoji-item" onclick="celebrate(event)">🎨</div>
+            </div>
+
+            <button class="cta-primary" onclick="document.querySelector('.pricing').scrollIntoView({behavior: 'smooth'})">
+                See Pricing
+            </button>
+        </div>
+    </section>
+
+    <!-- Proof -->
+    <section class="proof">
+        <h2>Real Work. Real Results.</h2>
+        <div class="proof-grid">
+            <div class="proof-card">
+                <div class="proof-number">10L+</div>
+                <div class="proof-label">Highest Views</div>
+            </div>
+            <div class="proof-card">
+                <div class="proof-number">143K</div>
+                <div class="proof-label">Strong Performance</div>
+            </div>
+            <div class="proof-card">
+                <div class="proof-number">50+</div>
+                <div class="proof-label">Videos Edited</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing -->
+    <section class="pricing">
+        <h2>Simple. Affordable. Honest.</h2>
+        <div class="pricing-grid">
+            <!-- Essential -->
+            <div class="price-card">
+                <h3>Essential</h3>
+                <p class="subtitle">Clean & Effective • 1:00-1:10 Video</p>
+                <div class="price-display">
+                    <div class="price-option">
+                        <div class="price-label">Single</div>
+                        <div class="price-amount">₹200</div>
+                    </div>
+                    <div class="price-option">
+                        <div class="price-label">Hindi+Odia</div>
+                        <div class="price-amount">₹260</div>
+                    </div>
+                </div>
+                <ul class="includes">
+                    <li>Clean cutting & trimming</li>
+                    <li>Basic transitions</li>
+                    <li>Background music</li>
+                    <li>Text & captions</li>
+                    <li>Color correction</li>
+                    <li>Ready for upload</li>
+                </ul>
+                <button class="price-cta" onclick="openWhatsApp('Essential - ₹200/260')">Start Here</button>
+            </div>
+
+            <!-- Creative (Most Popular) -->
+            <div class="price-card most-popular">
+                <span class="badge">Most Popular</span>
+                <h3>Creative</h3>
+                <p class="subtitle">Story-Driven Magic • 1:00-1:10 Video</p>
+                <div class="price-display">
+                    <div class="price-option">
+                        <div class="price-label">Single</div>
+                        <div class="price-amount">₹300</div>
+                    </div>
+                    <div class="price-option">
+                        <div class="price-label">Hindi+Odia</div>
+                        <div class="price-amount">₹390</div>
+                    </div>
+                </div>
+                <ul class="includes">
+                    <li>Everything in Essential</li>
+                    <li>Dynamic captions</li>
+                    <li>Custom transitions</li>
+                    <li>B-roll integration</li>
+                    <li>Sound design</li>
+                    <li>Story-based color grade</li>
+                    <li>SFX layering</li>
+                </ul>
+                <button class="price-cta" onclick="openWhatsApp('Creative - ₹300/390')">Choose This</button>
+            </div>
+
+            <!-- Advanced -->
+            <div class="price-card">
+                <h3>Advanced</h3>
+                <p class="subtitle">Premium Cinema • 1:00-1:10 Video</p>
+                <div class="price-display">
+                    <div class="price-option">
+                        <div class="price-label">Single</div>
+                        <div class="price-amount">₹500</div>
+                    </div>
+                    <div class="price-option">
+                        <div class="price-label">Hindi+Odia</div>
+                        <div class="price-amount">₹650</div>
+                    </div>
+                </div>
+                <ul class="includes">
+                    <li>Everything in Creative</li>
+                    <li>Advanced VFX</li>
+                    <li>Motion graphics</li>
+                    <li>Complex object tracking</li>
+                    <li>Cinematic color grading</li>
+                    <li>Advanced sound mixing</li>
+                    <li>Detailed masking & effects</li>
+                </ul>
+                <button class="price-cta" onclick="openWhatsApp('Advanced - ₹500/650')">Go Premium</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Calculator -->
+    <section class="calculator">
+        <h2>Price Your Video 🎥</h2>
+        <div class="calc-container">
+            <div class="calc-section">
+                <h3>1. Choose Package</h3>
+                <div class="radio-group">
+                    <div class="radio-option" onclick="document.getElementById('tier-essential').checked=true; updatePrice()">
+                        <input type="radio" id="tier-essential" name="tier" value="essential" checked onchange="updatePrice()">
+                        <label for="tier-essential">
+                            <span>Essential (Clean & Effective)</span>
+                            <span class="option-price">₹200/260</span>
+                        </label>
+                    </div>
+                    <div class="radio-option" onclick="document.getElementById('tier-creative').checked=true; updatePrice()">
+                        <input type="radio" id="tier-creative" name="tier" value="creative" onchange="updatePrice()">
+                        <label for="tier-creative">
+                            <span>Creative (Story-Driven) ⭐</span>
+                            <span class="option-price">₹300/390</span>
+                        </label>
+                    </div>
+                    <div class="radio-option" onclick="document.getElementById('tier-advanced').checked=true; updatePrice()">
+                        <input type="radio" id="tier-advanced" name="tier" value="advanced" onchange="updatePrice()">
+                        <label for="tier-advanced">
+                            <span>Advanced (Premium Cinema)</span>
+                            <span class="option-price">₹500/650</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="calc-section">
+                <h3>2. Language</h3>
+                <div class="radio-group">
+                    <div class="radio-option" onclick="document.getElementById('lang-single').checked=true; updatePrice()">
+                        <input type="radio" id="lang-single" name="language" value="single" checked onchange="updatePrice()">
+                        <label for="lang-single">
+                            <span>Single Language</span>
+                        </label>
+                    </div>
+                    <div class="radio-option" onclick="document.getElementById('lang-bilingual').checked=true; updatePrice()">
+                        <input type="radio" id="lang-bilingual" name="language" value="bilingual" onchange="updatePrice()">
+                        <label for="lang-bilingual">
+                            <span>Bilingual (Hindi + Odia)</span>
+                            <span class="option-price">+30%</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="calc-section">
+                <h3>3. Video Length</h3>
+                <div class="duration-input-group">
+                    <input type="number" id="minutes" placeholder="Minutes" min="1" max="120" value="1" onchange="updatePrice()" oninput="updatePrice()">
+                    <span>minutes</span>
+                    <input type="number" id="seconds" placeholder="Seconds" min="0" max="59" value="0" onchange="updatePrice()" oninput="updatePrice()">
+                    <span>seconds</span>
+                </div>
+                <div style="font-size: 0.85rem; color: #a89f95; margin-top: 10px;">
+                    📌 Base packages: 1:00 - 1:10
+                    <br>Extra time = additional charges per minute
+                </div>
+            </div>
+
+            <div class="result-box">
+                <div class="result-label">Your Price</div>
+                <div class="result-price" id="result-price">₹200</div>
+                <div class="result-breakdown" id="result-breakdown">
+                    Essential (Single) • 1 min video
+                </div>
+                <button class="calc-cta" onclick="sendCalcWhatsApp()">💬 Send to WhatsApp</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Extras -->
+    <section class="extras">
+        <h2>Add-Ons</h2>
+        <div class="extras-grid">
+            <div class="extra-card">
+                <h4>Custom Thumbnail</h4>
+                <div class="extra-price">+₹75</div>
+                <p class="extra-desc">Eye-catching design for clicks</p>
+            </div>
+            <div class="extra-card">
+                <h4>Script Writing</h4>
+                <div class="extra-price">+₹150</div>
+                <p class="extra-desc">Full script for your video</p>
+            </div>
+            <div class="extra-card">
+                <h4>Stock Footage</h4>
+                <div class="extra-price">+₹100</div>
+                <p class="extra-desc">Licensed clips for your edit</p>
+            </div>
+            <div class="extra-card">
+                <h4>Rush Delivery</h4>
+                <div class="extra-price">+25%</div>
+                <p class="extra-desc">24-hour turnaround</p>
+            </div>
+            <div class="extra-card">
+                <h4>Extra Revision</h4>
+                <div class="extra-price">+₹75</div>
+                <p class="extra-desc">Beyond the first 2</p>
+            </div>
+            <div class="extra-card">
+                <h4>YouTube Optimization</h4>
+                <div class="extra-price">+₹50</div>
+                <p class="extra-desc">SEO-ready metadata</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process -->
+    <section class="process">
+        <h2>How It Works</h2>
+        <div class="process-grid">
+            <div class="process-step">
+                <div class="step-number">1</div>
+                <h4>Message Me</h4>
+                <p>Tell me about your video & choose your package</p>
+            </div>
+            <div class="process-step">
+                <div class="step-number">2</div>
+                <h4>Send Footage</h4>
+                <p>Share your raw files (Drive link or WeTransfer)</p>
+            </div>
+            <div class="process-step">
+                <div class="step-number">3</div>
+                <h4>I Edit</h4>
+                <p>You get 2 revisions included + quick turnaround</p>
+            </div>
+            <div class="process-step">
+                <div class="step-number">4</div>
+                <h4>Download & Post</h4>
+                <p>Get your video ready for the world</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <button class="whatsapp-btn" onclick="openWhatsApp('Hi Ananya! I want to know more')">
+            💬 Chat on WhatsApp
+        </button>
+        <div class="footer-links">
+            <a href="https://youtube.com/@spiritual__vibes" target="_blank">YouTube</a>
+            <a href="https://instagram.com/spiritualvibes" target="_blank">Instagram</a>
+            <a href="mailto:ananyaswain2005@gmail.com">Email</a>
+        </div>
+        <p class="footer-quote">"Good editing is invisible. Great editing makes you feel something."</p>
+    </footer>
+
+    <script>
+        const basePrices = {
+            essential: { single: 200, bilingual: 260 },
+            creative: { single: 300, bilingual: 390 },
+            advanced: { single: 500, bilingual: 650 }
+        };
+
+        const extraCharges = {
+            essential: { single: 50, bilingual: 65 },
+            creative: { single: 75, bilingual: 98 },
+            advanced: { single: 125, bilingual: 163 }
+        };
+
+        function getTotalSeconds() {
+            const mins = parseInt(document.getElementById('minutes').value) || 0;
+            const secs = parseInt(document.getElementById('seconds').value) || 0;
+            return mins * 60 + secs;
+        }
+
+        function updatePrice() {
+            const tier = document.querySelector('input[name="tier"]:checked').value;
+            const language = document.querySelector('input[name="language"]:checked').value;
+            const totalSeconds = getTotalSeconds();
+            
+            const baseSeconds = 70; // 1:10 in seconds
+            const baseCost = basePrices[tier][language];
+            
+            let finalPrice = baseCost;
+            
+            if (totalSeconds > baseSeconds) {
+                const extraSeconds = totalSeconds - baseSeconds;
+                const extraMinutes = Math.ceil(extraSeconds / 60);
+                const extraChargePerMin = extraCharges[tier][language];
+                finalPrice += extraMinutes * extraChargePerMin;
+            }
+
+            // Update result
+            document.getElementById('result-price').textContent = '₹' + finalPrice;
+            
+            const mins = document.getElementById('minutes').value;
+            const secs = document.getElementById('seconds').value;
+            const langText = language === 'bilingual' ? 'Bilingual' : 'Single';
+            const tierText = tier.charAt(0).toUpperCase() + tier.slice(1);
+            
+            document.getElementById('result-breakdown').textContent = 
+                `${tierText} (${langText}) • ${mins}:${secs.padStart(2, '0')} video`;
+        }
+
+        function openWhatsApp(message) {
+            const phone = '91'; // Replace with actual WhatsApp number
+            const encoded = encodeURIComponent(message);
+            window.open(`https://wa.me/${phone}?text=${encoded}`, '_blank');
+        }
+
+        function sendCalcWhatsApp() {
+            const tier = document.querySelector('input[name="tier"]:checked').value;
+            const language = document.querySelector('input[name="language"]:checked').value;
+            const price = document.getElementById('result-price').textContent;
+            const breakdown = document.getElementById('result-breakdown').textContent;
+            
+            const message = `I'm interested! My video: ${breakdown}. Price: ${price}. Can we proceed?`;
+            openWhatsApp(message);
+        }
+
+        function celebrate(event) {
+            const rect = event.target.getBoundingClientRect();
+            const x = rect.left + rect.width / 2;
+            const y = rect.top + rect.height / 2;
+            
+            const colors = ['#d4a574', '#c99560', '#f5f1e8', '#a89f95'];
+            
+            for (let i = 0; i < 30; i++) {
+                const confetti = document.createElement('div');
+                confetti.className = 'confetti';
+                confetti.style.left = x + 'px';
+                confetti.style.top = y + 'px';
+                confetti.style.background = colors[Math.floor(Math.random() * colors.length)];
+                confetti.style.animation = `confettifall ${2 + Math.random()}s linear forwards`;
+                confetti.style.transform = `translateX(${(Math.random() - 0.5) * 200}px) rotate(${Math.random() * 360}deg)`;
+                
+                document.body.appendChild(confetti);
+                
+                setTimeout(() => confetti.remove(), 3000);
+            }
+        }
+
+        // Initialize price on load
+        updatePrice();
+    </script>
+
+</body>
+</html>
